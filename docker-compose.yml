@@ -11,8 +11,8 @@ services:
     container_name: traceweave-core
     ports:
       - "4000:4000"
-    environment:
-      - NODE_ENV=development
+    env_file:
+      - ./backend/core-api/.env
     depends_on:
       - mongo
     volumes:
