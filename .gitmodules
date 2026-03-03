@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = https://github.com/23cse311-team11/traceweave-backend.git
+	url = https://github.com/Aashiq-Edavalapati/cloud-traceweave-backend.git
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/23cse311-team11/traceweave-frontend.git
+	url = https://github.com/Aashiq-Edavalapati/cloud-traceweave-frontend.git
