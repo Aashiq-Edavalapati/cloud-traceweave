@@ -1,0 +1,26 @@
+name: Deploy Backend to Azure VM
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: azureuser
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd cloud-traceweave
+            git pull --recurse-submodules
+            # Only build and start the nginx and the express-backend service
+            docker-compose up -d --build nginx express-backend
